@@ -100,7 +100,116 @@
     nav a.active::after {
       width: 100%;
     }
+/* ===== HAMBURGER MENU STYLES ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
 
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background: #1e293b;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation when active */
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  background: #b49450;
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+  background: #b49450;
+}
+
+/* Mobile Navigation Menu */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 80px 40px 40px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
+    overflow-y: auto;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .nav-menu li {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  
+  .nav-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-menu a {
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+    text-transform: none;
+  }
+  
+  .nav-menu a::after {
+    display: none;
+  }
+  
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: #b49450;
+    background: none;
+  }
+  
+  /* Overlay when menu is open */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
     /* ===== PAGE HERO ===== */
     .page-hero {
       background: linear-gradient(105deg, #f8f6f2 0%, #fff 100%);
@@ -515,22 +624,33 @@
 <body>
 
   <header>
-    <div class="container">
-      <nav>
+  <div class="container">
+    <nav>
+      <div class="logo-container">
         <h1>🌿 Pastures Tutorial Centre</h1>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="mocks.html">NOUN Mocks</a></li>
-          <li><a href="jamb-mock.html">JAMB Mocks</a></li>
-          <li><a href="tutor-request.html">Request Tutor</a></li>
-          <li><a href="academic-writing.html">Academic Writing</a></li>
-          <li><a href="tech-skills.html">Tech Skills</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+      </div>
+      
+      <!-- Hamburger Menu Button (visible on mobile) -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <!-- Navigation Menu -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="mocks.html">NOUN Mocks</a></li>
+        <li><a href="jamb-mock.html">JAMB Mocks</a></li>
+        <li><a href="tutor-request.html">Request Tutor</a></li>
+        <li><a href="academic-writing.html">Academic Writing</a></li>
+        <li><a href="tech-skills.html">Tech Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <!-- Page Hero -->
   <section class="page-hero">
@@ -694,6 +814,55 @@
   <footer>
     <p>© 2026 Pastures Tutorial Centre – Empowering NOUN Students in Nigeria</p>
   </footer>
-
+<script>
+  // Hamburger Menu Toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    // Create overlay element
+    const overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    document.body.appendChild(overlay);
+    
+    // Toggle menu
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      this.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    // Close menu when clicking a link
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+</script>
 </body>
+
 </html>
