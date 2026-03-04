@@ -30,76 +30,77 @@
     }
 
     /* ===== HEADER ===== */
-    header {
-      background: #ffffff;
-      color: #1e293b;
-      padding: 0.8rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      border-bottom: 1px solid #f0f0f0;
-    }
+header {
+  background: #ffffff;
+  color: #1e293b;
+  padding: 0.8rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid #f0f0f0;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-    nav h1 {
-      font-size: 1.8rem;
-      font-weight: 500;
-      letter-spacing: -0.5px;
-      color: #1e293b;
-      font-family: 'Cormorant Garamond', serif;
-    }
+nav h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: #1e293b;
+  font-family: 'Cormorant Garamond', serif;
+}
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
+/* Regular desktop navigation */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
 
-    nav a {
-      color: #4a5568;
-      text-decoration: none;
-      font-weight: 400;
-      font-size: 0.9rem;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-      position: relative;
-    }
+nav a {
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
+}
 
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: #b49450;
-      transition: width 0.3s ease;
-    }
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #b49450;
+  transition: width 0.3s ease;
+}
 
-    nav a:hover {
-      color: #b49450;
-    }
+nav a:hover {
+  color: #b49450;
+}
 
-    nav a:hover::after {
-      width: 100%;
-    }
+nav a:hover::after {
+  width: 100%;
+}
 
-    nav a.active {
-      color: #b49450;
-    }
+nav a.active {
+  color: #b49450;
+}
 
-    nav a.active::after {
-      width: 100%;
-    }
+nav a.active::after {
+  width: 100%;
+}
 /* ===== HAMBURGER MENU STYLES ===== */
 .hamburger {
   display: none;
@@ -562,40 +563,42 @@
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      .about-content {
-        padding-right: 0;
-      }
-      
-      .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .courses-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
   /* Keep logo and hamburger side by side */
   nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
   
-  /* Hide the regular nav UL - hamburger will control it */
-  nav ul {
+  /* Ensure hamburger is visible */
+  .hamburger {
+    display: flex !important;
+  }
+  
+  /* Hide the regular nav UL on mobile */
+  nav ul:not(.nav-menu) {
     display: none;
+  }
+  
+  /* Make sure the mobile menu (nav-menu) is positioned correctly */
+  .nav-menu {
+    display: flex; /* This ensures it's a flex container when active */
   }
   
   .hero h2 {
@@ -621,6 +624,17 @@
   
   h2 {
     font-size: 2.5rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  nav h1 {
+    font-size: 1.4rem;
+  }
+  
+  .hero h2 {
+    font-size: 2.2rem;
   }
 }
   </style>
@@ -870,5 +884,6 @@
 </body>
 
 </html>
+
 
 
