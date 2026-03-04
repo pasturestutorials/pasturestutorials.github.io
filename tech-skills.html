@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tech Skills – Pastures Tutorial Centre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ================================================
+       Pastures Tutorial Centre - Modern Classic Theme
+       ================================================ */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #ffffff;
+      color: #1e293b;
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      color: #1e293b;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #b49450;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b49450;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== SECTION STYLING ===== */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #b49450;
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 3.2rem;
+      font-weight: 400;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    .section-description {
+      text-align: center;
+      color: #64748b;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ===== SKILLS GRID WITH IMAGES ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .skill-card {
+      background: #ffffff;
+      border: 1px solid #f1f1f1;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: #b49450;
+      transition: height 0.4s ease;
+      z-index: 2;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.15);
+      border-color: #e8e8e8;
+    }
+
+    .skill-card:hover::before {
+      height: 100%;
+    }
+
+    .skill-image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .skill-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .skill-card:hover .skill-image img {
+      transform: scale(1.05);
+    }
+
+    .skill-content {
+      padding: 2rem;
+    }
+
+    .skill-content h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      position: relative;
+      display: inline-block;
+    }
+
+    .skill-content h3::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #b49450;
+    }
+
+    .skill-content p {
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: #f8f6f2;
+      color: #b49450;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      border: 1px solid #e8e2d4;
+    }
+
+    /* ===== FEATURES BANNER ===== */
+    .features-banner {
+      background: #faf9f7;
+      padding: 3rem 0;
+      margin: 3rem 0 0;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .feature-item {
+      padding: 1.5rem;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.5rem;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #b49450;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover .feature-icon {
+      background: #b49450;
+      color: white;
+      border-color: #b49450;
+    }
+
+    .feature-item p {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-box {
+      background: #1e293b;
+      color: white;
+      padding: 4rem;
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .cta-box h3 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .cta-box p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.2rem;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: transparent;
+      border: 1px solid #b49450;
+      color: #b49450;
+    }
+
+    .btn-primary:hover {
+      background: #b49450;
+      color: #1e293b;
+      transform: translateY(-2px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #ffffff;
+      color: #64748b;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
+      h2 {
+        font-size: 2.5rem;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-box {
+        padding: 3rem 1.5rem;
+      }
+      
+      .cta-box h3 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <h1>🌿 Pastures Tutorial Centre</h1>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mocks.html">NOUN Mocks</a></li>
+          <li><a href="jamb-mock.html">JAMB Mocks</a></li>
+          <li><a href="tutor-request.html">Request Tutor</a></li>
+          <li><a href="academic-writing.html">Academic Writing</a></li>
+          <li><a href="tech-skills.html" class="active">Tech Skills</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Future-Ready Skills</div>
+        <h2>Tech Skills We Offer</h2>
+        <div class="section-description">
+          At Pastures Tutorial Centre in Abuja, we go beyond exam prep — we equip NOUN students (and professionals) with hands-on, future-ready tech skills. Our practical courses help you build real projects, boost your CV, and open doors to freelance, tech jobs, or further studies.
+        </div>
+      </div>
+
+      <!-- Skills Grid with Images -->
+      <div class="skills-grid">
+        <!-- Python Programming -->
+        <div class="skill-card">
+          <div class="skill-image">
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80&w=800" alt="Python Programming">
+          </div>
+          <div class="skill-content">
+            <h3>Python Programming</h3>
+            <p>Master the basics to advanced scripting, automation, and building real-world applications. Learn data structures, algorithms, and OOP principles.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Scripting</span>
+              <span class="skill-tag">Automation</span>
+              <span class="skill-tag">Web Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Analysis -->
+        <div class="skill-card">
+          <div class="skill-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Data Analysis">
+          </div>
+          <div class="skill-content">
+            <h3>Data Analysis</h3>
+            <p>Learn data cleaning, visualization, and insights using Python (Pandas, Matplotlib, Seaborn) — ideal for research and business decisions.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Pandas</span>
+              <span class="skill-tag">Visualization</span>
+              <span class="skill-tag">Statistics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI for Video Creation -->
+        <div class="skill-card">
+          <div class="skill-image">
+            <img src="https://th.bing.com/th/id/OIP.XK4iswk6yjkGcOYhZYD1sQHaEK?w=267&h=180&c=7&r=0&o=7&pid=1.7&rm=3" alt="AI for Video Creation">
+          </div>
+          <div class="skill-content">
+            <h3>AI for Video Creation</h3>
+            <p>Hands-on with generative AI tools to create, edit, and animate videos automatically (text-to-video, effects, and storytelling).</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Generative AI</span>
+              <span class="skill-tag">Text-to-Video</span>
+              <span class="skill-tag">Animation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI for Web Development -->
+        <div class="skill-card">
+          <div class="skill-image">
+            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800" alt="AI for Web Development">
+          </div>
+          <div class="skill-content">
+            <h3>AI for Web Development</h3>
+            <p>Build modern websites faster using AI-powered no-code/low-code platforms, smart code assistants, and AI-enhanced design tools.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">No-Code</span>
+              <span class="skill-tag">AI Assistants</span>
+              <span class="skill-tag">Rapid Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Robotics with Arduino -->
+        <div class="skill-card">
+          <div class="skill-image">
+            <img src="data:image/webp;base64,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" alt="Robotics with Arduino">
+          </div>
+          <div class="skill-content">
+            <h3>Robotics with Arduino</h3>
+            <p>Design, build, and program robots — from simple sensors and motors to autonomous cars and robotic arms using Arduino boards.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Arduino</span>
+              <span class="skill-tag">Sensors</span>
+              <span class="skill-tag">Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cybersecurity & Ethical Hacking -->
+        <div class="skill-card">
+          <div class="skill-image">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" alt="Cybersecurity">
+          </div>
+          <div class="skill-content">
+            <h3>Cybersecurity & Ethical Hacking</h3>
+            <p>Understand digital security, penetration testing basics, tools like Kali Linux, and how to protect systems ethically.</p>
+            <div class="skill-tags">
+              <span class="skill-tag">Kali Linux</span>
+              <span class="skill-tag">Pen Testing</span>
+              <span class="skill-tag">Network Security</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Banner -->
+      <div class="features-banner">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <p>Hands-on Projects</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M5.5 20v-2a6.5 6.5 0 0 1 13 0v2"/>
+              </svg>
+            </div>
+            <p>Small Classes</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="6" width="20" height="12" rx="2"/>
+                <path d="M7 12h10M12 7v10"/>
+              </svg>
+            </div>
+            <p>Affordable Fees</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <p>Certificates</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Box -->
+      <div class="cta-box">
+        <h3>Ready to Start Your Tech Journey?</h3>
+        <p>Join our in-centre sessions in Abuja or inquire about weekend/group batches via WhatsApp!</p>
+        <a href="https://wa.me/2348105002814" class="btn btn-primary">Contact Us on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Pastures Tutorial Centre – Empowering NOUN Students in Nigeria</p>
+  </footer>
+
+</body>
+</html>

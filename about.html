@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – Pastures Tutorial Centre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ================================================
+       Pastures Tutorial Centre - Modern Classic Theme
+       ================================================ */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #ffffff;
+      color: #1e293b;
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      color: #1e293b;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #b49450;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b49450;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: #b49450;
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      background: linear-gradient(105deg, #f8f6f2 0%, #fff 100%);
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(180, 148, 80, 0.03) 0%, rgba(180, 148, 80, 0.08) 100%);
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+
+    .page-hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-hero-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #b49450;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .page-hero h2 {
+      font-size: 3.8rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      color: #1e293b;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .page-hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: #4a5568;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ===== SECTION STYLING ===== */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #b49450;
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+
+    h2 {
+      font-size: 3.2rem;
+      font-weight: 400;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* ===== ABOUT GRID ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin: 3rem 0;
+    }
+
+    .about-image {
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.02);
+    }
+
+    .about-content {
+      padding-right: 2rem;
+    }
+
+    .about-content p {
+      color: #4a5568;
+      margin-bottom: 1.8rem;
+      font-weight: 300;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .about-content p:first-of-type {
+      font-size: 1.3rem;
+      color: #1e293b;
+      font-weight: 400;
+      border-left: 3px solid #b49450;
+      padding-left: 1.5rem;
+    }
+
+    /* ===== MISSION & VALUES ===== */
+    .mission-section {
+      background: #faf9f7;
+      padding: 5rem 0;
+      margin: 2rem 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      background: #ffffff;
+      padding: 2.5rem 2rem;
+      border: 1px solid #f1f1f1;
+      transition: all 0.4s ease;
+      position: relative;
+      text-align: center;
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: #b49450;
+      transition: height 0.4s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.15);
+      border-color: #e8e8e8;
+    }
+
+    .value-card:hover::before {
+      height: 100%;
+    }
+
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.8rem;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #b49450;
+      transition: all 0.3s ease;
+    }
+
+    .value-card:hover .value-icon {
+      background: #b49450;
+      color: white;
+      border-color: #b49450;
+    }
+
+    .value-card h4 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .value-card p {
+      color: #64748b;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ===== STATS SECTION ===== */
+    .stats-section {
+      background: #1e293b;
+      color: white;
+      padding: 4rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: #b49450;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #cbd5e1;
+      font-weight: 300;
+    }
+
+    /* ===== COURSES SECTION ===== */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .course-category {
+      background: #ffffff;
+      padding: 2rem;
+      border: 1px solid #f1f1f1;
+      position: relative;
+    }
+
+    .course-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: #b49450;
+    }
+
+    .course-category h4 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 1.2rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .course-category ul {
+      list-style: none;
+    }
+
+    .course-category li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #4a5568;
+      font-weight: 300;
+    }
+
+    .course-category li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #b49450;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: #faf9f7;
+      padding: 4rem 0;
+      text-align: center;
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #1e293b;
+      color: white;
+      border: 1px solid #1e293b;
+    }
+
+    .btn-primary:hover {
+      background: #b49450;
+      border-color: #b49450;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px -10px rgba(180, 148, 80, 0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #ffffff;
+      color: #64748b;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .about-content {
+        padding-right: 0;
+      }
+      
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
+      .page-hero h2 {
+        font-size: 2.8rem;
+      }
+      
+      .about-image {
+        height: 350px;
+      }
+      
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h2 {
+        font-size: 2.5rem;
+      }
+      
+      h3 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <h1>🌿 Pastures Tutorial Centre</h1>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mocks.html">NOUN Mocks</a></li>
+          <li><a href="jamb-mock.html">JAMB Mocks</a></li>
+          <li><a href="tutor-request.html">Request Tutor</a></li>
+          <li><a href="academic-writing.html">Academic Writing</a></li>
+          <li><a href="tech-skills.html">Tech Skills</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="page-hero-subtitle">Our Story</div>
+        <h2>About Pastures Tutorial Centre</h2>
+        <p>Empowering NOUN students in Abuja with quality education, realistic exam preparation, and personalized support since 2018.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Grid Section -->
+  <section>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="img.png" alt="Students studying at Pastures Tutorial Centre">
+        </div>
+        <div class="about-content">
+          <p>Pastures Tutorial Centre is an Abuja-based tutorial hub dedicated to helping National Open University of Nigeria (NOUN) students excel in their studies.</p>
+          <p>Founded with a vision to bridge the gap between distance learning and academic excellence, we have grown to become one of Abuja's most trusted tutorial centres for NOUN students. Our approach combines structured learning, realistic exam simulations, and personalized attention.</p>
+          <p>We specialize in realistic mock examinations that mirror NOUN's CBT format for 100–200 level courses and pen-on-paper practice for higher levels. Our students don't just study — they practice exactly what they'll face on exam day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Values -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Our Philosophy</div>
+        <h2>Mission & Values</h2>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h4>Excellence</h4>
+          <p>We maintain the highest standards in our teaching materials, mock exams, and instructional methods to ensure our students receive quality education.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h4>Personalization</h4>
+          <p>Every student learns differently. We adapt our teaching to individual needs, ensuring no one is left behind in their academic journey.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            </svg>
+          </div>
+          <h4>Integrity</h4>
+          <p>We operate with transparency and honesty, building trust with our students and their families through ethical practices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">2000+</div>
+          <div class="stat-label">Students</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Expert Tutors</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">7+</div>
+          <div class="stat-label">Years of Service</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">95%</div>
+          <div class="stat-label">Pass Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">What We Teach</div>
+        <h2>Our Course Areas</h2>
+      </div>
+
+      <div class="courses-grid">
+        <div class="course-category">
+          <h4>General Studies (GST)</h4>
+          <ul>
+            <li>GST 101 – Use of English</li>
+            <li>GST 102 – Nigerian Peoples & Culture</li>
+            <li>GST 103 – Philosophy & Logic</li>
+            <li>GST 104 – Communication Skills</li>
+            <li>GST 105 – Introduction to Entrepreneurship</li>
+          </ul>
+        </div>
+
+        <div class="course-category">
+          <h4>Management Sciences</h4>
+          <ul>
+            <li>Business Administration</li>
+            <li>Accounting</li>
+            <li>Economics</li>
+            <li>Marketing</li>
+            <li>Public Administration</li>
+          </ul>
+        </div>
+
+        <div class="course-category">
+          <h4>Education</h4>
+          <ul>
+            <li>Educational Foundation</li>
+            <li>Guidance & Counselling</li>
+            <li>Early Childhood Education</li>
+            <li>Science Education</li>
+            <li>Social Studies Education</li>
+          </ul>
+        </div>
+
+        <div class="course-category">
+          <h4>Sciences</h4>
+          <ul>
+            <li>Computer Science</li>
+            <li>Biology</li>
+            <li>Chemistry</li>
+            <li>Physics</li>
+            <li>Mathematics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h3>Ready to Excel in Your Studies?</h3>
+      <p style="margin-bottom: 2rem; color: #4a5568;">Join thousands of successful NOUN students who have improved their grades with us.</p>
+      <a href="contact.html" class="btn btn-primary">Get Started Today</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Pastures Tutorial Centre – Empowering NOUN Students in Nigeria</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NOUN Mock Exams – Pastures Tutorial Centre</title>
+  <meta name="description" content="Free mock CBT exams for NOUN students in Abuja. Practice with realistic simulations for GST, Management Sciences, Social Sciences, and more.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ================================================
+       Pastures Tutorial Centre - Modern Classic Theme
+       ================================================ */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #ffffff;
+      color: #1e293b;
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      color: #1e293b;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #b49450;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b49450;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: #b49450;
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      background: linear-gradient(105deg, #f8f6f2 0%, #fff 100%);
+      padding: 4rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(180, 148, 80, 0.03) 0%, rgba(180, 148, 80, 0.08) 100%);
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+
+    .page-hero-content {
+      max-width: 700px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-hero-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #b49450;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .page-hero h2 {
+      font-size: 3.5rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      color: #1e293b;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      color: #4a5568;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* ===== SECTION STYLING ===== */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #b49450;
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 400;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    /* ===== FACULTY GRID ===== */
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .faculty-card {
+      background: #ffffff;
+      border: 1px solid #f1f1f1;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faculty-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: #b49450;
+      transition: height 0.4s ease;
+    }
+
+    .faculty-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.15);
+      border-color: #e8e8e8;
+    }
+
+    .faculty-card:hover::before {
+      height: 100%;
+    }
+
+    .faculty-header {
+      padding: 2rem 2rem 1rem;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .faculty-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 1rem;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #b49450;
+      transition: all 0.3s ease;
+    }
+
+    .faculty-card:hover .faculty-icon {
+      background: #b49450;
+      color: white;
+      border-color: #b49450;
+    }
+
+    .faculty-header h3 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #1e293b;
+      margin-bottom: 0.5rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .faculty-code {
+      color: #b49450;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .course-list {
+      padding: 1.5rem 2rem 2rem;
+      list-style: none;
+    }
+
+    .course-list li {
+      margin-bottom: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed #f0f0f0;
+    }
+
+    .course-list li:last-child {
+      border-bottom: none;
+    }
+
+    .course-list a {
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 300;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s;
+    }
+
+    .course-list a:hover {
+      color: #b49450;
+    }
+
+    .course-code {
+      font-weight: 500;
+      color: #1e293b;
+    }
+
+    .course-arrow {
+      color: #b49450;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s;
+    }
+
+    .course-list a:hover .course-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== INFO BANNER ===== */
+    .info-banner {
+      background: #faf9f7;
+      padding: 3rem;
+      margin: 3rem 0;
+      border: 1px solid #f1f1f1;
+      position: relative;
+    }
+
+    .info-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: #b49450;
+    }
+
+    .info-banner h4 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .info-banner p {
+      color: #4a5568;
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+
+    .info-banner ul {
+      margin: 1.5rem 0 0 2rem;
+      color: #64748b;
+    }
+
+    .info-banner li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== FORMAT SECTION ===== */
+    .format-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    .format-card {
+      background: #ffffff;
+      padding: 2.5rem;
+      border: 1px solid #f1f1f1;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .format-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.1);
+    }
+
+    .format-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 1.5rem;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #b49450;
+    }
+
+    .format-card h4 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .format-card p {
+      color: #64748b;
+      font-weight: 300;
+    }
+
+    .format-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.3rem 1rem;
+      background: #f8f6f2;
+      color: #b49450;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid #e8e2d4;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: #1e293b;
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: transparent;
+      border: 1px solid #b49450;
+      color: #b49450;
+    }
+
+    .btn-primary:hover {
+      background: #b49450;
+      color: #1e293b;
+      transform: translateY(-3px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #ffffff;
+      color: #64748b;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .format-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
+      .page-hero h2 {
+        font-size: 2.5rem;
+      }
+      
+      .faculty-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .info-banner {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <h1>🌿 Pastures Tutorial Centre</h1>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mocks.html" class="active">NOUN Mocks</a></li>
+          <li><a href="jamb-mock.html">JAMB Mocks</a></li>
+          <li><a href="tutor-request.html">Request Tutor</a></li>
+          <li><a href="academic-writing.html">Academic Writing</a></li>
+          <li><a href="tech-skills.html">Tech Skills</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="page-hero-subtitle">Practice Makes Perfect</div>
+        <h2>NOUN Mock Exams</h2>
+        <p>Realistic simulations that mirror NOUN's actual exam format. Choose your faculty and start practicing today.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section>
+    <div class="container">
+      <!-- Exam Format Info -->
+      <div class="format-section">
+        <div class="format-card">
+          <div class="format-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
+              <line x1="8" y1="10" x2="16" y2="10"/>
+              <line x1="8" y1="14" x2="12" y2="14"/>
+            </svg>
+          </div>
+          <h4>100–200 Level</h4>
+          <p>CBT Format • Multiple Choice Questions • Instant Results</p>
+          <span class="format-badge">Computer-Based</span>
+        </div>
+        <div class="format-card">
+          <div class="format-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h4>300 Level & Above</h4>
+          <p>Pen-on-Paper Format • Theory Questions • Detailed Marking</p>
+          <span class="format-badge">Theory-Based</span>
+        </div>
+      </div>
+
+      <!-- Faculty Grid -->
+      <div class="faculty-grid">
+        <!-- Agricultural Science -->
+        <div class="faculty-card">
+          <div class="faculty-header">
+            <div class="faculty-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3>Agricultural Science</h3>
+            <div class="faculty-code">GST 101–108</div>
+          </div>
+          <ul class="course-list">
+            <li>
+              <a href="https://forms.gle/Pf6vSk8YahQJYdNm9" target="_blank">
+                <span class="course-code">GST101</span> Use of English I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">GST102</span> Use of English II
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">GST103</span> Nigerian Peoples & Culture
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">GST104</span> Philosophy & Logic
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWEj-EKq4vZ3C1aLBjnbB_GbqypaDmoxw8ja9OVBvyjQtlCA/viewform?usp=publish-editor" target="_blank">
+                <span class="course-code">GST105</span> Communication Skills
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Management Sciences -->
+        <div class="faculty-card">
+          <div class="faculty-header">
+            <div class="faculty-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
+                <line x1="8" y1="16" x2="16" y2="16"/>
+                <line x1="8" y1="12" x2="16" y2="12"/>
+                <line x1="8" y1="8" x2="12" y2="8"/>
+              </svg>
+            </div>
+            <h3>Management Sciences</h3>
+            <div class="faculty-code">ACC • BUS • ECO</div>
+          </div>
+          <ul class="course-list">
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">ACC101</span> Principles of Accounting I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">ACC102</span> Principles of Accounting II
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">BUS101</span> Introduction to Business
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">ECO111</span> Principles of Economics I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">ECO112</span> Principles of Economics II
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social Sciences -->
+        <div class="faculty-card">
+          <div class="faculty-header">
+            <div class="faculty-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M5.5 20v-2a6.5 6.5 0 0 1 13 0v2"/>
+              </svg>
+            </div>
+            <h3>Social Sciences</h3>
+            <div class="faculty-code">POL • SOC • PSY</div>
+          </div>
+          <ul class="course-list">
+            <li>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTrMrRNFsNd64XN7eAIa8jI2DdJ1hKtFd7DSDcFOzo9J1yRw/viewform?usp=dialog" target="_blank">
+                <span class="course-code">MAC 111</span> Introduction To Mass Communication
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://forms.gle/zwWcnpjxHWa2ADQF9" target="_blank">
+                <span class="course-code">MAC 117</span> Writing for the Mass Media I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuhjagCeEI7k7kD41Gh0rok9zcjTdUhqwzRe0hJ6WkW7JZiw/viewform?usp=dialog" target="_blank">
+                <span class="course-code">MAC 113</span> History of Nigerian Mass Media
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://forms.gle/ri7y421juUtNWKScA" target="_blank">
+                <span class="course-code">MAC 121</span> Introduction to News Writing and Reporting
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="faculty-card">
+          <div class="faculty-header">
+            <div class="faculty-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3>Education</h3>
+            <div class="faculty-code">EDU • ECE • GCE</div>
+          </div>
+          <ul class="course-list">
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">EDU111</span> Introduction to Education
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">ECE121</span> Early Childhood Education
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">GCE141</span> Guidance & Counselling
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sciences -->
+        <div class="faculty-card">
+          <div class="faculty-header">
+            <div class="faculty-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+              </svg>
+            </div>
+            <h3>Sciences</h3>
+            <div class="faculty-code">CSC • BIO • CHM • PHY</div>
+          </div>
+          <ul class="course-list">
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">CSC101</span> Introduction to Computer Science
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">BIO101</span> General Biology I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">CHM101</span> General Chemistry I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">PHY101</span> General Physics I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        
+        <!-- Arts & Humanities -->
+        <div class="faculty-card">
+          <div class="faculty-header">
+            <div class="faculty-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                <path d="M2 2l7.5 7.5"/>
+              </svg>
+            </div>
+            <h3>Arts & Humanities</h3>
+            <div class="faculty-code">ENG • HIS • REL</div>
+          </div>
+          <ul class="course-list">
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">ENG111</span> English Literature I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">HIS121</span> African History
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">REL101</span> Religious Studies
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Law -->
+        <div class="faculty-card">
+          <div class="faculty-header">
+            <div class="faculty-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                <path d="M2 2l7.5 7.5"/>
+              </svg>
+            </div>
+            <h3>Law</h3>
+            <div class="faculty-code">ENG • HIS • REL</div>
+          </div>
+          <ul class="course-list">
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">ENG111</span> English Literature I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">HIS121</span> African History
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">REL101</span> Religious Studies
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Computing -->
+        <div class="faculty-card">
+          <div class="faculty-header">
+            <div class="faculty-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                <path d="M2 2l7.5 7.5"/>
+              </svg>
+            </div>
+            <h3>Computing</h3>
+            <div class="faculty-code">ENG • HIS • REL</div>
+          </div>
+          <ul class="course-list">
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">ENG111</span> English Literature I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">HIS121</span> African History
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">REL101</span> Religious Studies
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+         <!-- Health Science -->
+        <div class="faculty-card">
+          <div class="faculty-header">
+            <div class="faculty-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                <path d="M2 2l7.5 7.5"/>
+              </svg>
+            </div>
+            <h3>Health Science</h3>
+            <div class="faculty-code">ENG • HIS • REL</div>
+          </div>
+          <ul class="course-list">
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">ENG111</span> English Literature I
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">HIS121</span> African History
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID_HERE/viewform" target="_blank">
+                <span class="course-code">REL101</span> Religious Studies
+                <span class="course-arrow">→</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      
+
+      <!-- Information Banner -->
+      <div class="info-banner">
+        <h4>About Our Mock Exams</h4>
+        <p>Our mock exams are designed to simulate the actual NOUN examination experience:</p>
+        <ul>
+          <li>✓ CBT format for 100–200 level courses (multiple choice, timed)</li>
+          <li>✓ Pen-on-paper format for 300 level and above (theory questions)</li>
+          <li>✓ Detailed feedback and performance analysis</li>
+          <li>✓ Past questions and likely exam areas</li>
+          <li>✓ Available both in-centre and online</li>
+        </ul>
+        
+      </div>
+
+      <!-- Additional Courses Note -->
+      <p style="text-align: center; color: #64748b; font-weight: 300; margin: 2rem 0;">
+        Don't see your course? Contact us to request specific mock exams.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 style="color: white;">Ready to Test Your Knowledge?</h2>
+      <p style="color: #cbd5e1; margin-bottom: 2rem;">Select a course above and start your mock exam now.</p>
+      <a href="contact.html" class="btn btn-primary">Need Help? Contact Us</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Pastures Tutorial Centre – Empowering NOUN Students in Nigeria</p>
+  </footer>
+
+</body>
+</html>

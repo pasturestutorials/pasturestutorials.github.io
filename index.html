@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pastures Tutorial Centre – NOUN Mock Exams & Tech Skills in Abuja</title>
+  <meta name="description" content="Free mock CBT exams, NOUN tutorial classes, and tech skills training for National Open University of Nigeria students in Abuja.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ================================================
+       Pastures Tutorial Centre - Modern Classic Theme
+       ================================================ */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #ffffff;
+      color: #1e293b;
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      color: #1e293b;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #b49450;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b49450;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: #b49450;
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(105deg, #f8f6f2 0%, #fff 100%);
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(180, 148, 80, 0.03) 0%, rgba(180, 148, 80, 0.08) 100%);
+      clip-path: polygon(100% 0, 0 0, 100% 100%);
+    }
+
+    .hero-content {
+      max-width: 700px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #b49450;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .hero h2 {
+      font-size: 4rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .hero h2 strong {
+      font-weight: 600;
+      color: #b49450;
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #4a5568;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #1e293b;
+      color: white;
+      border: 1px solid #1e293b;
+    }
+
+    .btn-primary:hover {
+      background: #b49450;
+      border-color: #b49450;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px -10px rgba(180, 148, 80, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #1e293b;
+      border: 1px solid #d0d5dd;
+    }
+
+    .btn-secondary:hover {
+      border-color: #b49450;
+      color: #b49450;
+      transform: translateY(-3px);
+    }
+
+    /* ===== SECTION STYLING ===== */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #b49450;
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+
+    h2 {
+      font-size: 3.2rem;
+      font-weight: 400;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    .section-description {
+      text-align: center;
+      color: #64748b;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ===== SERVICES GRID ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .service-card {
+      background: #ffffff;
+      padding: 2.5rem 2rem;
+      border: 1px solid #f1f1f1;
+      transition: all 0.4s ease;
+      position: relative;
+      text-align: left;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: #b49450;
+      transition: height 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.15);
+      border-color: #e8e8e8;
+    }
+
+    .service-card:hover::before {
+      height: 100%;
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.8rem;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #b49450;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      background: #b49450;
+      color: white;
+      border-color: #b49450;
+    }
+
+    .service-card h3 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .service-card p {
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .service-link {
+      color: #b49450;
+      text-decoration: none;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-link:hover {
+      gap: 1rem;
+    }
+
+    /* ===== SCHEDULE PREVIEW ===== */
+    .schedule-preview {
+      background: #faf9f7;
+      padding: 4rem 0;
+      margin: 2rem 0;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .schedule-item {
+      background: #ffffff;
+      padding: 2rem;
+      border: 1px solid #f1f1f1;
+      text-align: center;
+    }
+
+    .schedule-day {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #b49450;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 0.8rem;
+    }
+
+    .schedule-time {
+      font-size: 1.1rem;
+      color: #1e293b;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .schedule-desc {
+      color: #64748b;
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    /* ===== FEATURES GRID ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .feature-item {
+      padding: 1.5rem;
+    }
+
+    .feature-number {
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: #b49450;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item h4 {
+      font-size: 1.2rem;
+      color: #1e293b;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .feature-item p {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: #1e293b;
+      color: white;
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: white;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+      color: #cbd5e1;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+
+    .cta-section .btn-primary {
+      background: transparent;
+      border: 1px solid #b49450;
+      color: #b49450;
+    }
+
+    .cta-section .btn-primary:hover {
+      background: #b49450;
+      color: #1e293b;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #ffffff;
+      color: #64748b;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .schedule-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
+      .hero h2 {
+        font-size: 3rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .schedule-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <h1>🌿 Pastures Tutorial Centre</h1>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="mocks.html">NOUN Mocks</a></li>
+          <li><a href="jamb-mock.html">JAMB Mocks</a></li>
+          <li><a href="tutor-request.html">Request Tutor</a></li>
+          <li><a href="academic-writing.html">Academic Writing</a></li>
+          <li><a href="tech-skills.html">Tech Skills</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-subtitle">Welcome to Pastures</div>
+        <h2>Ace Your <strong>NOUN Exams</strong><br/>with Confidence</h2>
+        <p>Free mock CBT exams, personalized tutoring, and future-ready tech skills training — right here in Abuja.</p>
+        <div class="hero-buttons">
+          <a href="mocks.html" class="btn btn-primary">Start Mock Exam Now</a>
+          <a href="tech-skills.html" class="btn btn-secondary">Explore Tech Skills</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome Section -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Your Success Partner</div>
+        <h2>Welcome to Pastures Tutorial Centre</h2>
+        <div class="section-description">
+          We help NOUN students prepare effectively with high-quality mock exams and essential tech skills training — right here in Abuja. Since 2018, thousands of students have trusted us to improve their grades and build future-ready skills.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="services-grid">
+        <!-- NOUN Mocks -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="6" width="20" height="12" rx="2" ry="2"/>
+              <path d="M8 10h8M8 14h4"/>
+            </svg>
+          </div>
+          <h3>NOUN Mock Exams</h3>
+          <p>Realistic CBT simulations for 100–200 level courses and pen-on-paper practice for higher levels. Past questions and detailed feedback.</p>
+          <a href="mocks.html" class="service-link">Explore Mocks →</a>
+        </div>
+
+        <!-- JAMB Mocks -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>JAMB CBT Practice</h3>
+          <p>Comprehensive JAMB preparation with past questions, timed tests, and performance analytics to boost your UTME scores.</p>
+          <a href="jamb-mock.html" class="service-link">Practice Now →</a>
+        </div>
+
+        <!-- Tech Skills -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>Tech Skills Training</h3>
+          <p>Python, Data Analysis, AI for Video & Web, Robotics, Cybersecurity. Hands-on projects every Thursday.</p>
+          <a href="tech-skills.html" class="service-link">Learn More →</a>
+        </div>
+
+        <!-- Home Tutoring -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Home Tutoring</h3>
+          <p>Personalized one-on-one tutoring for JAMB, WAEC, and NOUN courses in the comfort of your home. Flexible scheduling.</p>
+          <a href="tutor-request.html" class="service-link">Request Tutor →</a>
+        </div>
+
+        <!-- Academic Writing -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3>Academic Writing</h3>
+          <p>Guidance on assignments, research papers, and project work. Learn proper citation, structure, and academic standards.</p>
+          <a href="academic-writing.html" class="service-link">Get Support →</a>
+        </div>
+
+        <!-- About Us -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M5.5 20v-2a6.5 6.5 0 0 1 13 0v2"/>
+            </svg>
+          </div>
+          <h3>About Our Centre</h3>
+          <p>Learn about our mission, values, and the team dedicated to helping NOUN students excel in their academic journey.</p>
+          <a href="about.html" class="service-link">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule Preview -->
+  <section class="schedule-preview">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-subtitle">Weekly Schedule</div>
+        <h2>When to Find Us</h2>
+      </div>
+
+      <div class="schedule-grid">
+        <div class="schedule-item">
+          <div class="schedule-day">Thursday</div>
+          <div class="schedule-time">3:00 PM – 6:00 PM</div>
+          <div class="schedule-desc">Tech Skills Training</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-day">Friday</div>
+          <div class="schedule-time">3:00 PM – 6:00 PM</div>
+          <div class="schedule-desc">NOUN Tutorial Classes</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-day">Saturday</div>
+          <div class="schedule-time">9:00 AM – 5:00 PM</div>
+          <div class="schedule-desc">NOUN Full-Day Sessions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features / Stats -->
+  <section>
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-number">2000+</div>
+          <h4>Students Trained</h4>
+          <p>Trusted by thousands of NOUN students since 2018</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-number">15+</div>
+          <h4>Expert Tutors</h4>
+          <p>Experienced educators in various disciplines</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-number">50+</div>
+          <h4>Courses Covered</h4>
+          <p>From GST to specialized degree programs</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-number">95%</div>
+          <h4>Pass Rate</h4>
+          <p>Students report improved exam performance</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial / Quote -->
+  <section style="background: #faf9f7; padding: 4rem 0;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.8rem; font-weight: 300; font-style: italic; color: #1e293b; font-family: 'Cormorant Garamond', serif; line-height: 1.5; margin-bottom: 2rem;">
+          "Pastures Tutorial Centre transformed my approach to NOUN exams. The mock tests were exactly like the real thing, and I passed all my courses with confidence."
+        </p>
+        <p style="color: #b49450; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px;">— Chinedu O., NOUN Student</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Excel in Your Studies?</h2>
+      <p>Join thousands of successful NOUN students who have improved their grades and built future-ready skills with us.</p>
+      <a href="contact.html" class="btn btn-primary">Get Started Today</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Pastures Tutorial Centre – Empowering NOUN Students in Nigeria</p>
+  </footer>
+
+</body>
+</html>
