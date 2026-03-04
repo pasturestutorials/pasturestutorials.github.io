@@ -570,27 +570,43 @@
     }
 
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      
-      nav ul {
-        justify-content: center;
-      }
-      
-      .page-hero h2 {
-        font-size: 2.5rem;
-      }
-      
-      .faculty-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .info-banner {
-        padding: 2rem;
-      }
-    }
+  /* Keep logo and hamburger side by side */
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Hide the regular nav UL - hamburger will control it */
+  nav ul {
+    display: none;
+  }
+  
+  .hero h2 {
+    font-size: 3rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -1103,5 +1119,6 @@
 </body>
 
 </html>
+
 
 
