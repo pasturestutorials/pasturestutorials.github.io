@@ -113,6 +113,7 @@ nav a.active::after {
   cursor: pointer;
   padding: 0;
   z-index: 1100;
+  position: relative;
 }
 
 .hamburger-line {
@@ -135,6 +136,102 @@ nav a.active::after {
 .hamburger.active .hamburger-line:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
   background: #b49450;
+}
+
+/* Mobile Navigation Menu */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 380px;
+    height: 100vh;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 100px 30px 40px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+    z-index: 1050;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    margin: 0;
+    list-style: none;
+    display: block; /* Changed from flex to block for better compatibility */
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .nav-menu li {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #f1f1f1;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+  }
+  
+  .nav-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-menu a {
+    display: block;
+    padding: 1.2rem 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+    text-transform: none;
+    text-decoration: none;
+    font-weight: 500;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1060;
+    -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+  }
+  
+  .nav-menu a::after {
+    display: none;
+  }
+  
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: #b49450;
+    background: none;
+  }
+  
+  /* Active state for better UX */
+  .nav-menu a:active {
+    color: #b49450;
+    opacity: 0.8;
+  }
+  
+  /* Overlay when menu is open */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(3px); /* Adds blur effect behind menu */
+  }
+  
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 /* Mobile Navigation Menu */
@@ -637,6 +734,21 @@ nav a.active::after {
     font-size: 2.2rem;
   }
 }
+    /* Ensure header is above content but below menu */
+header {
+  z-index: 1000;
+}
+
+/* Make sure links are clickable */
+.nav-menu a {
+  pointer-events: auto !important;
+}
+
+/* Fix for iOS */
+.nav-menu {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
   </style>
 </head>
 <body>
@@ -838,52 +950,77 @@ nav a.active::after {
     const hamburger = document.getElementById('hamburgerBtn');
     const navMenu = document.getElementById('navMenu');
     
-    // Create overlay element
-    const overlay = document.createElement('div');
-    overlay.className = 'menu-overlay';
-    document.body.appendChild(overlay);
+    // Create overlay element if it doesn't exist
+    let overlay = document.querySelector('.menu-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'menu-overlay';
+      document.body.appendChild(overlay);
+    }
+    
+    // Function to close menu
+    function closeMenu() {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+    }
+    
+    // Function to open menu
+    function openMenu() {
+      hamburger.classList.add('active');
+      navMenu.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    }
     
     // Toggle menu
-    hamburger.addEventListener('click', function() {
-      this.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      overlay.classList.toggle('active');
-      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    hamburger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (navMenu.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
     
     // Close menu when clicking overlay
-    overlay.addEventListener('click', function() {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      this.classList.remove('active');
-      document.body.style.overflow = '';
+    overlay.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeMenu();
     });
     
     // Close menu when clicking a link
     const navLinks = navMenu.querySelectorAll('a');
     navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
+      link.addEventListener('click', function(e) {
+        // Allow the link to work normally
+        setTimeout(closeMenu, 100); // Small delay to ensure navigation works
       });
     });
     
     // Handle window resize
     window.addEventListener('resize', function() {
       if (window.innerWidth > 768) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
+        closeMenu();
       }
+    });
+    
+    // Prevent clicks inside menu from closing it (unless on a link)
+    navMenu.addEventListener('click', function(e) {
+      e.stopPropagation();
     });
   });
 </script>
 </body>
 
 </html>
+
 
 
 
