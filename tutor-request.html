@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Request Home Tutor – Pastures Tutorial Centre</title>
+  <title>Request a Tutor – Pastures Tutorial Centre</title>
+  <meta name="description" content="Request a personalized home tutor in Abuja for JAMB, WAEC, and NOUN courses. One-on-one tutoring at your convenience.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     /* ================================================
@@ -101,7 +102,7 @@
       width: 100%;
     }
 
-    /* ===== HERO SECTION ===== */
+    /* ===== PAGE HERO ===== */
     .page-hero {
       background: linear-gradient(105deg, #f8f6f2 0%, #fff 100%);
       padding: 4rem 0 3rem;
@@ -122,7 +123,7 @@
     }
 
     .page-hero-content {
-      max-width: 800px;
+      max-width: 700px;
       position: relative;
       z-index: 2;
     }
@@ -153,242 +154,169 @@
       font-weight: 300;
     }
 
-    /* ===== SECTION STYLING ===== */
-    section {
+    /* ===== FORM CONTAINER ===== */
+    .form-section {
       padding: 5rem 0;
+      background: #faf9f7;
     }
 
-    .section-header {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      color: #b49450;
-      margin-bottom: 0.8rem;
-      font-weight: 300;
-    }
-
-    h2 {
-      font-size: 3rem;
-      font-weight: 400;
-      color: #1e293b;
-      margin-bottom: 1rem;
-      font-family: 'Cormorant Garamond', serif;
-      line-height: 1.2;
-    }
-
-    h3 {
-      font-size: 2rem;
-      font-weight: 400;
-      color: #1e293b;
-      margin-bottom: 1.5rem;
-      font-family: 'Cormorant Garamond', serif;
-    }
-
-    /* ===== FEATURES GRID ===== */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .feature-card {
+    .form-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
       background: #ffffff;
-      padding: 2.5rem 2rem;
       border: 1px solid #f1f1f1;
-      transition: all 0.4s ease;
       position: relative;
-      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 30px 50px -30px rgba(0, 0, 0, 0.2);
     }
 
-    .feature-card::before {
+    .form-wrapper::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 3px;
-      height: 0;
-      background: #b49450;
-      transition: height 0.4s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.15);
-      border-color: #e8e8e8;
-    }
-
-    .feature-card:hover::before {
       height: 100%;
+      background: #b49450;
+      z-index: 1;
+    }
+
+    .form-header {
+      background: linear-gradient(135deg, #f8f6f2 0%, #fff 100%);
+      padding: 2.5rem 3rem;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .form-header h3 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #1e293b;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-header p {
+      color: #64748b;
+      font-weight: 300;
+    }
+
+    .form-body {
+      padding: 3rem;
+    }
+
+    /* Google Form iframe styling */
+    .google-form-container {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0;
+    }
+
+    .google-form-container iframe {
+      width: 100%;
+      border: none;
+      height: 2000px; /* Adjust based on your form length */
+      margin-bottom: -8px; /* Remove extra whitespace */
+      transition: opacity 0.3s;
+    }
+
+    .form-footer {
+      background: #f8f6f2;
+      padding: 1.5rem 3rem;
+      border-top: 1px solid #f1f1f1;
+      text-align: center;
+    }
+
+    .form-footer p {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    .form-footer p strong {
+      color: #b49450;
+      font-weight: 500;
+    }
+
+    /* Loading state */
+    .form-loading {
+      text-align: center;
+      padding: 3rem;
+      color: #b49450;
+    }
+
+    .form-loading .spinner {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 1rem;
+      border: 2px solid #f1f1f1;
+      border-top-color: #b49450;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ===== FEATURES GRID ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: #ffffff;
+      border: 1px solid #f1f1f1;
+      transition: transform 0.3s;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
     }
 
     .feature-icon {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 1.8rem;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.2rem;
       border: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       color: #b49450;
-      transition: all 0.3s ease;
     }
 
-    .feature-card:hover .feature-icon {
-      background: #b49450;
-      color: white;
-      border-color: #b49450;
-    }
-
-    .feature-card h4 {
-      font-size: 1.4rem;
+    .feature-item h4 {
+      font-size: 1.2rem;
       font-weight: 500;
       color: #1e293b;
-      margin-bottom: 1rem;
-      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 0.5rem;
     }
 
-    .feature-card p {
+    .feature-item p {
       color: #64748b;
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    /* ===== OFFERINGS LIST ===== */
-    .offerings-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      margin: 4rem 0;
-    }
-
-    .offerings-image {
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .offerings-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .offerings-image:hover img {
-      transform: scale(1.02);
-    }
-
-    .offerings-list {
-      list-style: none;
-    }
-
-    .offerings-list li {
-      margin-bottom: 1.5rem;
-      padding-left: 2rem;
-      position: relative;
-      font-size: 1.1rem;
-      color: #334155;
+      font-size: 0.9rem;
       font-weight: 300;
     }
 
-    .offerings-list li::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: #b49450;
-      font-weight: 400;
-      font-size: 1.2rem;
-    }
-
-    /* ===== CTA BUTTON ===== */
-    .cta-wrapper {
-      text-align: center;
-      margin: 3rem 0;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      font-size: 0.95rem;
-      font-weight: 400;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: #1e293b;
-      color: white;
-      border: 1px solid #1e293b;
-    }
-
-    .btn-primary:hover {
-      background: #b49450;
-      border-color: #b49450;
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px -10px rgba(180, 148, 80, 0.3);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #b49450;
-      color: #b49450;
-    }
-
-    .btn-outline:hover {
-      background: #b49450;
-      color: #1e293b;
-      transform: translateY(-3px);
-    }
-
-    /* ===== FORM EMBED SECTION ===== */
-    .form-section {
-      background: #faf9f7;
-      padding: 5rem 0;
-      margin-top: 2rem;
-    }
-
-    .form-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      padding: 3rem;
-      border: 1px solid #f0f0f0;
-      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-note {
-      text-align: center;
-      color: #64748b;
-      font-style: italic;
-      margin-top: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    /* ===== INFO BOX ===== */
-    .info-box {
+    /* ===== INFO BANNER ===== */
+    .info-banner {
       background: #ffffff;
       padding: 2.5rem;
-      border: 1px solid #f1f1f1;
       margin: 3rem 0;
+      border: 1px solid #f1f1f1;
       position: relative;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .info-box::before {
+    .info-banner::before {
       content: '';
       position: absolute;
       top: 0;
@@ -398,7 +326,11 @@
       background: #b49450;
     }
 
-    .info-box h4 {
+    .info-content {
+      flex: 1;
+    }
+
+    .info-content h4 {
       font-size: 1.6rem;
       font-weight: 400;
       color: #1e293b;
@@ -406,24 +338,45 @@
       font-family: 'Cormorant Garamond', serif;
     }
 
-    .info-box p {
+    .info-content p {
       color: #4a5568;
       margin-bottom: 0.8rem;
       font-weight: 300;
     }
 
-    .contact-details {
-      display: flex;
-      gap: 2rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
+    .contact-highlight {
+      background: #faf9f7;
+      padding: 1.5rem 2rem;
+      border: 1px solid #f1f1f1;
+      text-align: center;
+      min-width: 250px;
     }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
+    .contact-highlight .phone {
+      font-size: 1.8rem;
+      font-weight: 400;
       color: #b49450;
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #25D366;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-wa:hover {
+      background: #128C7E;
+      transform: translateY(-3px);
     }
 
     /* ===== FOOTER ===== */
@@ -446,11 +399,6 @@
       .features-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      
-      .offerings-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
     }
 
     @media (max-width: 768px) {
@@ -467,25 +415,21 @@
         font-size: 2.5rem;
       }
       
+      .form-header, .form-body, .form-footer {
+        padding: 1.5rem;
+      }
+      
+      .google-form-container iframe {
+        height: 2200px;
+      }
+      
       .features-grid {
         grid-template-columns: 1fr;
       }
       
-      .form-container {
-        padding: 2rem;
-      }
-      
-      .contact-details {
+      .info-banner {
         flex-direction: column;
-        gap: 1rem;
-      }
-      
-      h2 {
-        font-size: 2.4rem;
-      }
-      
-      h3 {
-        font-size: 1.8rem;
+        text-align: center;
       }
     }
   </style>
@@ -498,12 +442,12 @@
         <h1>🌿 Pastures Tutorial Centre</h1>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="mocks.html">NOUN Mocks</a></li>
           <li><a href="jamb-mock.html">JAMB Mocks</a></li>
           <li><a href="tutor-request.html" class="active">Request Tutor</a></li>
           <li><a href="academic-writing.html">Academic Writing</a></li>
           <li><a href="tech-skills.html">Tech Skills</a></li>
-          <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -515,117 +459,114 @@
     <div class="container">
       <div class="page-hero-content">
         <div class="page-hero-subtitle">Personalized Learning at Home</div>
-        <h2>Request Home Tutor<br/>for JAMB / WAEC / SPECIAL CLASSES</h2>
-        <p>Need personalized home lessons in Abuja? Our experienced tutors cover JAMB subjects, WAEC preparation, and Special Classes — all at your convenience.</p>
+        <h2>Request a Home Tutor</h2>
+        <p>Fill out the form below to request a qualified tutor for JAMB, WAEC, or NOUN courses. We'll match you with the perfect tutor within 24 hours.</p>
       </div>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <section>
+  <!-- Features Grid -->
+  <section style="padding: 2rem 0 0;">
     <div class="container">
-      <!-- Features Grid -->
       <div class="features-grid">
-        <div class="feature-card">
+        <div class="feature-item">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
               <circle cx="12" cy="7" r="4"/>
             </svg>
           </div>
-          <h4>One-on-One Tutoring</h4>
-          <p>Personalized attention with experienced tutors who adapt to your learning style and pace.</p>
+          <h4>Qualified Tutors</h4>
+          <p>Experienced and vetted educators</p>
         </div>
-
-        <div class="feature-card">
+        <div class="feature-item">
           <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="2" y="6" width="20" height="12" rx="2" ry="2"/>
-              <path d="M8 10h8M8 14h4"/>
-            </svg>
-          </div>
-          <h4>CBT Practice</h4>
-          <p>JAMB CBT practice with past questions, timed tests, and performance analytics to track progress.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <circle cx="12" cy="12" r="10"/>
               <path d="M12 6v6l4 2"/>
             </svg>
           </div>
-          <h4>Flexible Scheduling</h4>
-          <p>Choose lesson times that work for you — mornings, evenings, or weekends across Abuja.</p>
+          <h4>Flexible Schedule</h4>
+          <p>Choose your preferred days and time</p>
         </div>
-      </div>
-
-      <!-- Offerings with Image -->
-      <div class="offerings-container">
-        <div class="offerings-image">
-          <img src="https://tse4.mm.bing.net/th/id/OIP.x3091qkz0wA8qvuAIVnirgHaGN?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Home tutoring session">
-        </div>
-        <div>
-          <h3>What We Offer</h3>
-          <ul class="offerings-list">
-            <li><strong>One-on-one home tutoring</strong> – Individual attention in the comfort of your home</li>
-            <li><strong>JAMB CBT practice</strong> – Past questions, mock exams, and computer-based test simulations</li>
-            <li><strong>WAEC / NECO preparation</strong> – Theory, objectives, and practical exam prep</li>
-            <li><strong>Flexible scheduling</strong> – Morning, afternoon, evening, or weekend sessions</li>
-            <li><strong>Affordable rates</strong> – Quality tutoring at prices that fit your budget</li>
-            <li><strong>Progress tracking</strong> – Regular assessments and feedback reports</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- CTA Button -->
-      <div class="cta-wrapper">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3mz3Xp4rISKM0iC8efm1_X30SArmLHTwUIzaZn9BEvmSWCQ/viewform?usp=dialog" target="_blank" class="btn btn-primary">
-          Submit Tutor Request Form
-        </a>
-      </div>
-
-
-      <!-- Alternative: Embedded Google Form (commented out) -->
-      <!-- <div class="form-section">
-        <div class="container">
-          <div class="form-container">
-            <div class="section-header">
-              <div class="section-subtitle">Quick & Easy</div>
-              <h2>Request Your Tutor</h2>
-            </div>
-            <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-            <p class="form-note">We'll respond within 24 hours to confirm your tutor and schedule.</p>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
+              <line x1="8" y1="16" x2="16" y2="16"/>
+              <line x1="8" y1="12" x2="16" y2="12"/>
+            </svg>
           </div>
+          <h4>All Subjects</h4>
+          <p>JAMB, WAEC, NOUN, and more</p>
         </div>
-      </div> -->
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h4>Abuja Wide</h4>
+          <p>Covering all areas of the FCT</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <!-- Information Box -->
-      <div class="info-box">
-        <h4>Why Choose Our Home Tutoring?</h4>
-        <p>At Pastures Tutorial Centre, we understand that every student learns differently. Our home tutoring program is designed to provide personalized support that addresses individual strengths and areas for improvement.</p>
-        <p>All our tutors are:</p>
-        <ul style="margin: 1rem 0 1.5rem 2rem; color: #4a5568; font-weight: 300;">
-          <li>Subject matter experts with years of experience</li>
-          <li>Thoroughly vetted and background-checked</li>
-          <li>Trained in modern teaching methodologies</li>
-          <li>Committed to student success</li>
-        </ul>
+  <!-- Main Form Section -->
+  <section class="form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <div class="form-header">
+          <h3>Tutor Request Form</h3>
+          <p>Please fill in all details accurately. We'll contact you within 24 hours to confirm your tutor.</p>
+        </div>
         
-        <div class="contact-details">
-          <div class="contact-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.69 2.81a2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.33 1.85.563 2.81.69A2 2 0 0 1 22 16.92z"/>
-            </svg>
-            <span>Call/WhatsApp: 0708 832 9379</span>
+        <div class="form-body">
+          <div class="google-form-container">
+            <!-- 
+              =====================================================
+              REPLACE THIS IFRAME CODE WITH YOUR GOOGLE FORM EMBED CODE
+              =====================================================
+              1. Go to your Google Form
+              2. Click Send > Embed (<> icon)
+              3. Copy the iframe code
+              4. Paste it below, replacing this entire comment block
+            -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf3mz3Xp4rISKM0iC8efm1_X30SArmLHTwUIzaZn9BEvmSWCQ/viewform?    embedded=true" width="640" height="3317" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <div id="form-loading" class="form-loading">
+              <div class="spinner"></div>
+              <p>Loading request form...</p>
+            </div>
           </div>
-          <div class="contact-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
+        </div>
+        
+        <div class="form-footer">
+          <p><strong>Note:</strong> Your information is secure and will only be used to match you with the right tutor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Information Banner with WhatsApp -->
+  <section style="padding: 2rem 0 4rem;">
+    <div class="container">
+      <div class="info-banner">
+        <div class="info-content">
+          <h4>Need Immediate Assistance?</h4>
+          <p>If you prefer to request a tutor via WhatsApp or have urgent questions, contact us directly. We typically respond within 30 minutes during business hours.</p>
+          <p style="margin-top: 0.5rem;">✓ Quick response • ✓ Same-day matching • ✓ Free consultation</p>
+        </div>
+        <div class="contact-highlight">
+          <div class="phone">📱 0708 832 9379</div>
+          <p style="margin: 0.5rem 0; color: #4a5568;">Click to chat on WhatsApp</p>
+          <a href="https://wa.me/2347088329379" class="btn-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
             </svg>
-            <span>pasturestutorials@gmail.com</span>
-          </div>
+            WhatsApp Now
+          </a>
         </div>
       </div>
     </div>
@@ -635,9 +576,23 @@
     <p>© 2026 Pastures Tutorial Centre – Empowering Students in Nigeria</p>
   </footer>
 
+  <script>
+    // Hide loading spinner when iframe loads
+    window.addEventListener('load', function() {
+      const iframe = document.querySelector('iframe');
+      if (iframe) {
+        iframe.addEventListener('load', function() {
+          document.getElementById('form-loading').style.display = 'none';
+          this.style.opacity = '1';
+        });
+        
+        // Fallback: if iframe takes too long, hide spinner after 5 seconds
+        setTimeout(function() {
+          document.getElementById('form-loading').style.display = 'none';
+          iframe.style.opacity = '1';
+        }, 5000);
+      }
+    });
+  </script>
 </body>
-
 </html>
-
-
-
