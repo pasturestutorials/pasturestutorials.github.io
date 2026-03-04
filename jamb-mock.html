@@ -101,116 +101,7 @@
     nav a.active::after {
       width: 100%;
     }
-/* ===== HAMBURGER MENU STYLES ===== */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1100;
-}
 
-.hamburger-line {
-  width: 100%;
-  height: 2px;
-  background: #1e293b;
-  transition: all 0.3s ease;
-}
-
-/* Hamburger animation when active */
-.hamburger.active .hamburger-line:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
-  background: #b49450;
-}
-
-.hamburger.active .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active .hamburger-line:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
-  background: #b49450;
-}
-
-/* Mobile Navigation Menu */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-  
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 400px;
-    height: 100vh;
-    background: #ffffff;
-    flex-direction: column;
-    padding: 80px 40px 40px;
-    transition: right 0.3s ease;
-    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-    z-index: 1050;
-    overflow-y: auto;
-  }
-  
-  .nav-menu.active {
-    right: 0;
-  }
-  
-  .nav-menu li {
-    margin: 0;
-    width: 100%;
-    text-align: left;
-    border-bottom: 1px solid #f1f1f1;
-  }
-  
-  .nav-menu li:last-child {
-    border-bottom: none;
-  }
-  
-  .nav-menu a {
-    display: block;
-    padding: 1.2rem 0;
-    font-size: 1.1rem;
-    color: #1e293b;
-    text-transform: none;
-  }
-  
-  .nav-menu a::after {
-    display: none;
-  }
-  
-  .nav-menu a:hover,
-  .nav-menu a.active {
-    color: #b49450;
-    background: none;
-  }
-  
-  /* Overlay when menu is open */
-  .menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1040;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-  }
-  
-  .menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-}
     /* ===== PAGE HERO ===== */
     .page-hero {
       background: linear-gradient(105deg, #f8f6f2 0%, #fff 100%);
@@ -551,75 +442,59 @@
     }
 
     @media (max-width: 768px) {
-  /* Keep logo and hamburger side by side */
-  nav {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Hide the regular nav UL - hamburger will control it */
-  nav ul {
-    display: none;
-  }
-  
-  .hero h2 {
-    font-size: 3rem;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .schedule-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  h2 {
-    font-size: 2.5rem;
-  }
-}
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
+      .page-hero h2 {
+        font-size: 2.5rem;
+      }
+      
+      .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .info-features {
+        grid-template-columns: 1fr;
+      }
+      
+      .category-tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .category-tab {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-  <div class="container">
-    <nav>
-      <div class="logo-container">
+    <div class="container">
+      <nav>
         <h1>🌿 Pastures Tutorial Centre</h1>
-      </div>
-      
-      <!-- Hamburger Menu Button (visible on mobile) -->
-      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-      
-      <!-- Navigation Menu -->
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="mocks.html">NOUN Mocks</a></li>
-        <li><a href="jamb-mock.html" class="active">JAMB Mocks</a></li>
-        <li><a href="tutor-request.html">Request Tutor</a></li>
-        <li><a href="academic-writing.html">Academic Writing</a></li>
-        <li><a href="tech-skills.html">Tech Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mocks.html">NOUN Mocks</a></li>
+          <li><a href="jamb-mock.html" class="active">JAMB Mocks</a></li>
+          <li><a href="tutor-request.html">Request Tutor</a></li>
+          <li><a href="academic-writing.html">Academic Writing</a></li>
+          <li><a href="tech-skills.html">Tech Skills</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <!-- Page Hero -->
   <section class="page-hero">
@@ -761,482 +636,4 @@
             <div class="subject-code">ARB </div>
             <a href="https://docs.google.com/forms/d/e/YOUR_ARABIC_FORM_ID/viewform" target="_blank" class="subject-link">
               Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Music -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M9 18V5l12-2v13"/>
-                <circle cx="6" cy="18" r="3"/>
-                <circle cx="18" cy="16" r="3"/>
-              </svg>
-            </div>
-            <h3>Music</h3>
-            <div class="subject-code">MUS </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_MUSIC_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sciences -->
-      <h3 style="margin: 3rem 0 1.5rem; text-align: left;">Sciences</h3>
-      <div class="subject-grid">
-        <!-- Mathematics -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M18 3v18M6 3v18M3 6h18M3 18h18"/>
-                <circle cx="12" cy="12" r="2"/>
-              </svg>
-            </div>
-            <h3>Mathematics</h3>
-            <div class="subject-code">MTH </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_MATH_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Physics -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
-              </svg>
-            </div>
-            <h3>Physics</h3>
-            <div class="subject-code">PHY </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_PHYSICS_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Chemistry -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M4 22h16M6 18l8-16M14 18l-8-16M18 18H6"/>
-              </svg>
-            </div>
-            <h3>Chemistry</h3>
-            <div class="subject-code">CHM </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_CHEMISTRY_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Biology -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
-            </div>
-            <h3>Biology</h3>
-            <div class="subject-code">BIO </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_BIOLOGY_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Agricultural Science -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2v20M2 12h20"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
-            </div>
-            <h3>Agric Science</h3>
-            <div class="subject-code">AGR </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_AGRIC_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Health Education -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M22 12h-4l-3 9-4-18-3 9H2"/>
-              </svg>
-            </div>
-            <h3>Health Ed.</h3>
-            <div class="subject-code">HED </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_HEALTH_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Physical Education -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M5.5 20v-2a6.5 6.5 0 0 1 13 0v2"/>
-              </svg>
-            </div>
-            <h3>Physical Ed.</h3>
-            <div class="subject-code">PED </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_PE_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Computer Studies -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
-                <line x1="8" y1="16" x2="16" y2="16"/>
-                <line x1="8" y1="12" x2="16" y2="12"/>
-                <line x1="8" y1="8" x2="12" y2="8"/>
-              </svg>
-            </div>
-            <h3>Computer</h3>
-            <div class="subject-code">CSC </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_COMPUTER_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social Sciences -->
-      <h3 style="margin: 3rem 0 1.5rem; text-align: left;">Social Sciences</h3>
-      <div class="subject-grid">
-        <!-- Economics -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
-                <line x1="8" y1="16" x2="16" y2="16"/>
-                <line x1="8" y1="12" x2="16" y2="12"/>
-                <line x1="8" y1="8" x2="12" y2="8"/>
-              </svg>
-            </div>
-            <h3>Economics</h3>
-            <div class="subject-code">ECO </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_ECONOMICS_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Government -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-            </div>
-            <h3>Government</h3>
-            <div class="subject-code">GOV </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_GOVT_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Geography -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                <path d="M2 12h20"/>
-                <path d="M12 2v20"/>
-              </svg>
-            </div>
-            <h3>Geography</h3>
-            <div class="subject-code">GEO </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_GEOGRAPHY_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Civic -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M5.5 20v-2a6.5 6.5 0 0 1 13 0v2"/>
-              </svg>
-            </div>
-            <h3>Civic Education</h3>
-            <div class="subject-code">CVE </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_SOCIOLOGY_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Book keeping -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M12 16v-4M12 8h.01"/>
-              </svg>
-            </div>
-            <h3>Book keeping</h3>
-            <div class="subject-code">BOK </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_PSYCHOLOGY_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div> 
-
-        <!-- Commerce -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
-                <line x1="8" y1="10" x2="16" y2="10"/>
-                <line x1="8" y1="14" x2="12" y2="14"/>
-              </svg>
-            </div>
-            <h3>Commerce</h3>
-            <div class="subject-code">COM </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_COMMERCE_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Accounting -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
-                <line x1="8" y1="16" x2="16" y2="16"/>
-                <line x1="8" y1="12" x2="16" y2="12"/>
-                <line x1="8" y1="8" x2="12" y2="8"/>
-              </svg>
-            </div>
-            <h3>Accounting</h3>
-            <div class="subject-code">ACC </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_ACCOUNTING_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Insurance -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-            </div>
-            <h3>Insurance</h3>
-            <div class="subject-code">INS </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_INSURANCE_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Languages -->
-      <h3 style="margin: 3rem 0 1.5rem; text-align: left;">Nigerian Languages</h3>
-      <div class="subject-grid">
-        <!-- Yoruba -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M4 7h16M4 12h16M4 17h10"/>
-              </svg>
-            </div>
-            <h3>Yoruba</h3>
-            <div class="subject-code">YOR </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_YORUBA_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Igbo -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M4 7h16M4 12h16M4 17h10"/>
-              </svg>
-            </div>
-            <h3>Igbo</h3>
-            <div class="subject-code">IGB </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_IGBO_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Hausa -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M4 7h16M4 12h16M4 17h10"/>
-              </svg>
-            </div>
-            <h3>Hausa</h3>
-            <div class="subject-code">HAS </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_HAUSA_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-
-        <!-- Fulfulde -->
-        <div class="subject-card">
-          <div class="subject-content">
-            <div class="subject-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M4 7h16M4 12h16M4 17h10"/>
-              </svg>
-            </div>
-            <h3>Fulfulde</h3>
-            <div class="subject-code">FUL </div>
-            <a href="https://docs.google.com/forms/d/e/YOUR_FULFULDE_FORM_ID/viewform" target="_blank" class="subject-link">
-              Start Mock →
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Information Banner -->
-      <div class="info-banner">
-        <h4>About JAMB Mock Exams</h4>
-        <p>Our JAMB mock exams are designed to simulate the actual UTME experience:</p>
-        
-        <div class="info-features">
-          <div class="info-feature">
-            <div class="info-feature-icon">✓</div>
-            <span>40 questions per subject</span>
-          </div>
-          <div class="info-feature">
-            <div class="info-feature-icon">✓</div>
-            <span>Timed practice (60 minutes)</span>
-          </div>
-          <div class="info-feature">
-            <div class="info-feature-icon">✓</div>
-            <span>Instant results & feedback</span>
-          </div>
-          <div class="info-feature">
-            <div class="info-feature-icon">✓</div>
-            <span>Past questions included</span>
-          </div>
-          <div class="info-feature">
-            <div class="info-feature-icon">✓</div>
-            <span>No registration required</span>
-          </div>
-          <div class="info-feature">
-            <div class="info-feature-icon">✓</div>
-            <span>Free for all students</span>
-          </div>
-        </div>
-
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <h2 style="color: white;">Need Help or Personalized Tutoring?</h2>
-      <p style="color: #cbd5e1; margin-bottom: 2rem;">Contact us for one-on-one JAMB preparation and subject-specific coaching.</p>
-      <a href="tutor-request.html" class="btn btn-primary">Request a Tutor</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Pastures Tutorial Centre – Empowering Students in Nigeria</p>
-  </footer>
-<script>
-  // Hamburger Menu Toggle
-  document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.getElementById('hamburgerBtn');
-    const navMenu = document.getElementById('navMenu');
     
-    // Create overlay element
-    const overlay = document.createElement('div');
-    overlay.className = 'menu-overlay';
-    document.body.appendChild(overlay);
-    
-    // Toggle menu
-    hamburger.addEventListener('click', function() {
-      this.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      overlay.classList.toggle('active');
-      document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-    });
-    
-    // Close menu when clicking overlay
-    overlay.addEventListener('click', function() {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      this.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-    
-    // Close menu when clicking a link
-    const navLinks = navMenu.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-    
-    // Handle window resize
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 768) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  });
-</script>
-</body>
-
-</html>
-
-
